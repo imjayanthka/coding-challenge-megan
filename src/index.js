@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import "./styles.css";
-import ClockComponent from "./ClockComponent";
+import Clock from "./Clock";
 
 
 
 function App() {
   return (
     <div className="App">
-      <ClockComponent formatType="mins" />
+      <Clock />
     </div>
   );
 }

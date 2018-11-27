@@ -27,7 +27,6 @@ class ClockComponent extends React.Component {
   }
 
   componentDidMount() {
-    this.intervalId = setInterval(this.tick.bind(this), 1000);
     if (this.props.formatType === "mins") {
       this.setState({
         time: Math.floor(this.state.value / 60)
@@ -39,7 +38,9 @@ class ClockComponent extends React.Component {
         time: Math.floor(this.state.value)
       });
     }
+    this.intervalId = setInterval(this.tick.bind(this), 1000);
   }
+
 
   componentWillUnmount() {
     clearInterval(this.intervalId);
