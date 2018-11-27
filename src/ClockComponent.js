@@ -45,12 +45,32 @@ class ClockComponent extends React.Component {
     clearInterval(this.intervalId);
   }
 
+  handleResetButton = event => {
+    if (this.props.formatType === "mins") {
+      this.setState({
+        time: Math.floor(this.state.value / 60)
+      });
+    }
+
+    if (this.props.formatType === "secs") {
+      this.setState({
+        time: Math.floor(this.state.value)
+      });
+    }
+
+    this.minutesRemaining = this.state.value
+  }
+
+
   render() {
     return (
       <div>
         <div>Counts down for 100 minutes</div>
         <div>
           {this.state.time} {this.props.formatType}
+        </div>
+        <div>
+          <button onClick={(event) => this.handleResetButton(event) }>Reset Timer</button>
         </div>
       </div>
     );
